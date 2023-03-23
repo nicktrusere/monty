@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 
 	fd = check_input(argc, argv);
 	start_vglo(fd);
-	nlines = getline(&vglo.buffer, &size, fd);
+	nlines = fgets(&vglo.buffer, &size, fd);
 	while (nlines != -1)
 	{
 		lines[0] = _strtoky(vglo.buffer, " \t\n");
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 			vglo.arg = _strtoky(NULL, " \t\n");
 			f(&vglo.head, vglo.cont);
 		}
-		nlines = getline(&vglo.buffer, &size, fd);
+		nlines = fgets(&vglo.buffer, &size, fd);
 		vglo.cont++;
 	}
 
